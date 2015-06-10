@@ -11,9 +11,9 @@ by [@legittalon][twitter]
 
 ## *Question*: What is a Promise?
 
-<span class="fragment">*Answer*: A structure.</span>
+<span class="fragment">*Answer*: A type.</span>
 
-> Promises are *just* structures, homie
+> Promises are *just* a type, homie
 
 
 
@@ -26,7 +26,7 @@ by [@legittalon][twitter]
 const word = new String('hello')
 ```
 
-> Strings are a structure that represent generic data.
+> Strings are a type that represent generic data.
 
 
 ```js
@@ -37,7 +37,7 @@ const reverse = string => string
 ```
 
 > When I want to reverse the string I turn it into an array 'cause Arrays are 
-  good for iterating over stuff and being ordere. Strings know how to become 
+  good for iterating over stuff and being ordered. Strings know how to become 
   arrays know how to become strings.
 
 
@@ -47,7 +47,7 @@ console.log(
 )
 ```
 
-> Generic data, reveresed! 
+> Generic data, reversed! 
 
 
 ```js
@@ -65,6 +65,14 @@ const reversedWords = words.map(reverse)
 > Actually, how do I transform the value of an array? use `.map`
 
 
+## Reflection
+
+Types encapsulate data inside laws.
+
+> We classify data into types to provide it with special properties or laws,
+  binary trees, weakmap, map, array, promise, etc.
+
+
 
 ## Intuition, revenge of.
 
@@ -79,3 +87,5 @@ new Promise((resolve, reject) => resolve('hello'))
 
 # TODO
   - Ask for values out of structures, do not take them `array.map` vs `array[0]`
+  - visualize the sync/async timeline 
+  - `.then` is `.map`
