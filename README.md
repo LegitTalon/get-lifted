@@ -97,9 +97,12 @@ new Promise(resolve => resolve('hello'))
 
 ```js
 new Promise(resolve => setTimeout(() => resolve(['yo', 'yo']), 3000))
-  .then(value => console.log(value)) // => ...<3 seconds>... ['yo', 'yo']
+  .then(value => console.log(value))
+
+  // => ...<3 seconds>... ['yo', 'yo']
 ```
 > Aha! Promises can hold asynchronous values!
+
 
 ```js
 new Promise(resolve => resolve(1))
@@ -111,7 +114,7 @@ new Promise(resolve => resolve(1))
 
 ## Reflection
 
-Promises represent (asynchronous) values that can fail.
+Promises are a type that represents (asynchronous) values that can fail.
 > Generic Data <-> String | Ordered data <-> Array
   | Asynchronous Data <-> Promise
 
@@ -141,10 +144,92 @@ three.then(console.log) // => 3
 const add = (numOne, numTwo) => numOne
   .then(x => numTwo
     .then(y => x + y))
-add(one, two).then(console.log) // => 3
-```
 
+const three = add(one, two)
+
+three.then(console.log) // => 3
+```
 
 
 ```js
+const numbers = [
+  fetch('/api/v1/one').then(response => response.json()),
+  fetch('/api/v1/two').then(response => response.json()),
+  fetch('/api/v1/three').then(response => response.json()),
+  fetch('/api/v1/four').then(response => response.json()),
+]
+
+const add = (numOne, numTwo) => numOne
+  .then(x => numTwo
+    .then(y => x + y))
+
+numbers
+  .reduce(add, Promise.resolve(0))
+  .then(console.log) // => 10
 ```
+
+
+
+# Getting Lifted
+
+
+## A complex timeline
+```
+async - - - - - - - - - - - - - - - - - - - - - - - - - - ->
+      ^           |^       |^     |^                      |
+      |           ||       ||     ||                      |
+      |           v|       v|     v|                      v
+sync  ----------------------------------------------------->
+                            time
+```
+
+
+```js
+1/2 + 1/6
+```
+> How do I add two fractions with different denominators?
+
+
+```js
+3/6 + 1/6 === 4/6
+          === 2/3
+```
+> LCD: Lowest common denominator.
+
+
+## Lowest common abstraction
+
+```js
+const one = fetch('/api/v1/one').then(response => response.json())
+const two = 2
+```
+> How can I add the potential value of 1 with the available value of 2?
+
+
+An asynchronous value is not available now but a synchronous value will exist
+later.
+
+
+```js
+const one = fetch('/api/v1/one').then(response => response.json())
+const two = 2
+
+add(one, Promise.resolve(2))
+```
+
+
+## Namaste
+```
+async - - - - - - - - - - - - - - - - - - - - - - - - - - ->
+      ^                                                   |
+      |                                                   |
+      |                                                   v
+sync  ----------------------------------------------------->
+                            time
+```
+
+
+
+# Thank you
+
+<a href='http://twitter.com/legittalon'>@legittalon</a>
