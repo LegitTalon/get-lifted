@@ -99,11 +99,9 @@ new Promise(resolve => resolve('hello'))
 new Promise(resolve => setTimeout(() => resolve(['yo', 'yo']), 3000))
   .then(value => console.log(value)) // => ...<3 seconds>... ['yo', 'yo']
 ```
-> Aha! Promises can hold asyncronous values!
+> Aha! Promises can hold asynchronous values!
 
 
 ## Reflection
 
 Promises represent, potentially asynchronous, values that can fail.
-> We classify data into types to provide it with special properties or laws,
-  binary trees, weakmap, map, array, promise, etc.
