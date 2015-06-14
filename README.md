@@ -101,7 +101,50 @@ new Promise(resolve => setTimeout(() => resolve(['yo', 'yo']), 3000))
 ```
 > Aha! Promises can hold asynchronous values!
 
+```js
+new Promise(resolve => resolve(1))
+  .then(number => number + 1)
+  .then(number => console.log(number)) // => 2
+```
+> The last thing we should know about promises is `.then` === `.map`
+
 
 ## Reflection
 
-Promises represent, potentially asynchronous, values that can fail.
+Promises represent (asynchronous) values that can fail.
+> Generic Data <-> String | Ordered data <-> Array
+  | Asynchronous Data <-> Promise
+
+
+
+# Usage
+
+
+```js
+const one = fetch('/api/v1/one').then(response => response.json())
+const two = fetch('/api/v1/two').then(response => response.json())
+
+const three = one
+  .then(x => two
+    .then(y => x + y))
+
+three.then(console.log) // => 3 
+```
+> At this point all we can do is play around with promise-wrapped values to help
+  us gain a more firm intuition as to their utility.
+
+
+```js
+/**
+ * @summary Promise<number> -> Promise<number> -> Promise<number>
+ */
+const add = (numOne, numTwo) => numOne
+  .then(x => numTwo
+    .then(y => x + y))
+add(one, two).then(console.log) // => 3
+```
+
+
+
+```js
+```
