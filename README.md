@@ -149,6 +149,8 @@ const three = add(one, two)
 
 three.then(console.log) // => 3
 ```
+> We can use the same abstraction intuitions we know and love on this new type 
+  create functions that we can use to consume and compose!
 
 
 ```js
@@ -167,10 +169,13 @@ numbers
   .reduce(add, Promise.resolve(0))
   .then(console.log) // => 10
 ```
+> Gettin' fancy with it. Because promises are just types we can use them like
+  we would any other!
 
 
 
 # Getting Lifted
+> So let's think a bit more critically about asynchronicity in our programs
 
 
 ## A complex timeline
@@ -182,8 +187,11 @@ async - - - - - - - - - - - - - - - - - - - - - - - - - - ->
 sync  ----------------------------------------------------->
                             time
 ```
+> Here's a simple diagram of the dance we typically do to unify sync and async
+  values. We could do better.
 
 
+# Mathematical!
 ```js
 1/2 + 1/6
 ```
@@ -206,8 +214,8 @@ const two = 2
 > How can I add the potential value of 1 with the available value of 2?
 
 
-An asynchronous value is not available now but a synchronous value will exist
-later.
+"An asynchronous value is not available now but a synchronous value will exist
+later." - Talon
 
 
 ```js
