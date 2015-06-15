@@ -5,9 +5,9 @@ A Talk About JavaScript Promises
 
 
 
-## *Question*: What is a Promise?
+## Question: What is a Promise?
 
-<span class="fragment">*Answer*: A type.</span>
+<span class="fragment">Answer: A type.</span>
 > Promises are *just* a type, homie
 
 
@@ -63,10 +63,6 @@ Types encapsulate data inside laws.
 
 
 ## Intuition, revenge of
-
-```js
-Promise
-```
 > Let's play with this new type.
 
 
@@ -191,7 +187,6 @@ sync  ----------------------------------------------------->
   values. We could do better.
 
 
-# Mathematical!
 ```js
 1/2 + 1/6
 ```

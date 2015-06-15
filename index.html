@@ -15,10 +15,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/solarized_light.css">
+    <style>
+      .reveal pre code {
+        background: inherit;
+        color: inherit;
+      }
+      .reveal pre {
+        box-shadow: none;
+      }
+    </style>
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -64,6 +73,7 @@
 				center: true,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        zoomKey: 'ctrl',
 
 				// Optional reveal.js plugins
 				dependencies: [
@@ -73,7 +83,6 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/remotes/remotes.js', async: true }
 				]
 			});
 
