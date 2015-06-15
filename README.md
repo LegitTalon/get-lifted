@@ -209,8 +209,8 @@ const two = 2
 > How can I add the potential value of 1 with the available value of 2?
 
 
-"An asynchronous value is not available now but a synchronous value will exist
-later." - Talon
+An asynchronous value is not available now but a synchronous value will exist
+later.
 
 
 ```js
